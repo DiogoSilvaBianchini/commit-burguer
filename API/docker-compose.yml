@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: "postgres"
+    container_name: "postgres"
+    restart: always
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql
+    env_file: .env
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    
